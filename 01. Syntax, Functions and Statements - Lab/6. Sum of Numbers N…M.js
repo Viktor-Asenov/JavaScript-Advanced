@@ -1,4 +1,4 @@
-function wholeSum(firstInput, secondInput) {
+function sumOfNumbers(firstInput, secondInput) {
     let start = Number(firstInput);
     let end = Number(secondInput);
     let sum = 0;
@@ -9,5 +9,3 @@ function wholeSum(firstInput, secondInput) {
 
     console.log(sum);
 }
-
-wholeSum('-8', '20')
