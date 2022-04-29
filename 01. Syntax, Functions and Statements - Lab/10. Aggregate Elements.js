@@ -15,5 +15,3 @@ function aggregateElements(array) {
     console.log(inverseSum);
     console.log(concatenatedValues);
 }
-
-aggregateElements([2, 4, 8, 16])
