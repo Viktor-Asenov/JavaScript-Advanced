@@ -6,5 +6,3 @@ function takePreviousDay(year, month, day) {
     let previousDayDate = previous.getFullYear() + '-' + previous.getMonth() + '-' + previous.getDate();
     console.log(previousDayDate);
 }
-
-takePreviousDay(2016, 10, 1)
