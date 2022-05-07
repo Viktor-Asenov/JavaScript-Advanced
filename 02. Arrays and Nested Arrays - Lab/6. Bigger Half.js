@@ -9,7 +9,5 @@ function biggerHalf(elements) {
          newArray = array.slice(halfLength - 1, array.length);
     }
 
-    console.log('[' + newArray.join(', ') + ']');
+    return newArray;
 }
-
-biggerHalf([4, 7, 2, 5])
