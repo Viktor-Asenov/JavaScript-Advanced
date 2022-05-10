@@ -1,44 +1,35 @@
-function magicMatrices(matrix) {
-    let isMagical;
-    for (let i = 0; i < matrix.length; i++) {
-        let currentRow = matrix[i];
-        let nextRow = [];
-        for (let j = 0; j < currentRow.length; j++) {
-            let numberCurrentRow = currentRow[j];
-            let nextNumberCurrentRow;
+function magicMatrices(matrix){
 
-            if (j + 1 <= currentRow.length) {
-                nextNumberCurrentRow = currentRow[j + 1];
-            } else {
-                break;
-            }
+    matrix.map(row => row.map(col => Number(col)));
 
-            if (i + 1 <= matrix.length) {
-                nextRow = matrix[i + 1];
-            } else {
-                break;
-            }
-
-            for (let k = 0; k < nextRow.length; k++) {
-                let numberNextRow = nextRow[k];
-                let nextNumberNextRow;
-
-                if (k + 1 <= nextRow.length) {
-                    nextNumberNextRow = nextRow[k + 1];
-                } else {
-                    break;
-                }
-
-                if (numberCurrentRow + nextNumberCurrentRow === numberNextRow + nextNumberNextRow) {
-                    isMagical = true;
-                } else {
-                    isMagical = false;
-                }
-            }
-        }
+    if (matrix.length < 1) {
+        matrix.length = 5;
+        matrix.fill(0);
     }
 
-    console.log(isMagical);
+    let sum = function(arr) {
+        return arr.reduce(function(a, b){ return a + b; }, 0);
+      };
+  
+     let verticalSumsArray =  matrix.map(function(row, i) {
+        return sum(matrix.map(function(row) { return row[i]; }));
+      }); 
+    
+      let areEqual = true;
+
+      for (let row = 0; row < matrix.length; row++) {
+        let currentSum = 0;
+        for (let col = 0; col < matrix.length; col++) {
+           
+            currentSum += matrix[row][col];
+        }    
+        
+        if (currentSum != verticalSumsArray[row]) {
+            areEqual = false;
+        }
+      }
+ 
+    console.log(areEqual);
 }
 
 magicMatrices([[4, 5, 6],
