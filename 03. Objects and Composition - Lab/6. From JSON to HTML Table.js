@@ -12,8 +12,8 @@ function jsonToHtmlTable(array) {
 
     html+='</tr>' + '\n';
 
-    for (let index = 0; index < students.length; index++) {
-        const student = students[index];
+    for (let i = 0; i < students.length; i++) {
+        const student = students[i];
         html += '   <tr>';
 
         for (const key in student) {
@@ -27,14 +27,3 @@ function jsonToHtmlTable(array) {
     html += '</table>';
     console.log(html);
 }
-
-jsonToHtmlTable(`[{"Name":"Pesho",
-"Score":4,
-" Grade":8},
-{"Name":"Gosho",
-"Score":5,
-" Grade":8},
-{"Name":"Angel",
-"Score":5.50,
-" Grade":10}]`
-)
