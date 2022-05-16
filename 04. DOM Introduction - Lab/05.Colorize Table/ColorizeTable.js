@@ -1,3 +1,7 @@
 function colorize() {
-    // TODO
+    let rows = document.querySelectorAll('table tr');
+    for (let i = 1; i < rows.length; i+=2) {
+      let rowToChange = rows[i];
+      rowToChange.style.backgroundColor = 'Teal';  
+    }
 }
