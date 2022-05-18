@@ -9,9 +9,9 @@ function extract(content) {
     while (match !== null) {
         result += match[1];
         result += '; ';
-        
+
         match = pattern.exec(text);
     }
 
-    console.log(result)
+    return result;
 }
