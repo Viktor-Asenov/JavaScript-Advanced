@@ -1,45 +1,39 @@
 function generateReport() {
-    let cellsHead = [...document.querySelector('thead tr').children];
-    let filtered = cellsHead.filter(c => c.lastChild.checked);
-    let cellsBody = document.querySelector('tbody tr').children;
+    let checkboxElements = document.getElementsByTagName('th');
+    let columns = [];
+    let indices = [];
 
-    let reports = [];
-
-    for (let i = 0; i < filtered.length; i++) {
-        let report = {};
-
-        let element = filtered[i];
-        let indexInOriginalTable = cellsHead.indexOf(element);
-
-        for (let j = indexInOriginalTable; j < cellsBody.length; j++) {
-            let checkedCellName = element.textContent.trim().toLowerCase();
-            let correspondingCellContent = cellsBody[j];
-            console.log(correspondingCellContent)
-            report[checkedCellName] = correspondingCellContent.textContent;
-            
-            reports.push(report);
-        }        
+    for (let index = 0; index < checkboxElements.length; index++) {
+        const element = checkboxElements[index];
+        let checkedColumn = element.lastChild;
+        let ch = checkedColumn.checked;
+        if (checkedColumn.checked) {
+            indices.push(index);
+        } 
     }
 
-    console.log(reports)
+    let tableBody = document.querySelector('tbody');
+    let tableBodyRows = tableBody.children;
+
+    for (let index = 0; index < tableBodyRows.length; index++) {
+        let element = tableBodyRows[index];
+
+            let column = {};
+            let tdElements = element.children; 
+
+            for (let td = 0; td < tdElements.length; td++) {
+                if (indices.includes(td)) {
+                    let currentRowName = checkboxElements[td].textContent;
+                    let currentProp = tdElements[td];
+                    column[currentRowName.trim().toLowerCase()] = currentProp.textContent;
+                }            
+            }            
+          
+        columns.push(column);  
+    }
+
+    let result = JSON.stringify(columns, null, 2);
     
-    // let reports = [];
-    // for (let i = 0; i < cellsHead.length; i++) {
-    //     let cellHead = cellsHead[i];
-    //     //console.log(cellHead.textContent)
-
-    //     let report = {};
-    //     if (cellHead.lastChild.checked) {
-    //         let checkedCellName = cellHead.textContent.trim().toLowerCase();
-    //         //console.log(checkedCellName)
-    //         let correspondingCellBody = cellsBody[i];
-    //         //console.log(correspondingCellBody.textContent)
-
-    //         report[checkedCellName] = correspondingCellBody.textContent;
-
-            
-    //     }
-
-    //     console.log(report)
-    // }
+    let resultEl = document.querySelector('#output');
+    resultEl.value = result;
 }
