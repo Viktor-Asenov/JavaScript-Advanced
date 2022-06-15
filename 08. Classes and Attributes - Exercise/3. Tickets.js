@@ -1,12 +1,12 @@
-class Ticket {
-    constructor(destination, price, status) {
-        this.destination = destination;
-        this.price = price;
-        this.status = status;
-    }
-}
-
 function tickets(tickets, sortCriteria) {
+    class Ticket {
+        constructor(destination, price, status) {
+            this.destination = destination;
+            this.price = price;
+            this.status = status;
+        }
+    }
+    
     const arrOfTickets = [];
     for (let ticket of tickets) {
         const tokens = ticket.split('|');
@@ -26,11 +26,8 @@ function tickets(tickets, sortCriteria) {
     } else if (sortCriteria == 'status') {
         arrOfTickets.sort((a, b) => a.status.localeCompare(b.status));
     }
-    
-    for (const ticket of arrOfTickets) {
-        console.log(ticket)
-    }
-    //return arrOfTickets;
+
+    return arrOfTickets;
 }
 
 tickets(['Philadelphia|94.20|available',
