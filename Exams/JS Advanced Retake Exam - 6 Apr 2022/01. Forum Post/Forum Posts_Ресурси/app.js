@@ -70,9 +70,6 @@ function solve() {
     reviewList.removeChild(approvedPost);
 
     let articleElement = approvedPost.children[2];
-    for (let element of Array.from(articleElement)) {
-      element.textContent = ' ' + element.textContent;
-    }
     
     publishedList.appendChild(articleElement);
   }
