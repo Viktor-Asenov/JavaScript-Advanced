@@ -86,14 +86,11 @@ class Garden {
             result.push(`Plants in storage: The storage is empty.`);
         } else {
             let storageResult = [];
-            for (let key of this.storage) {
-                storageResult.push(key.plantName + ' ' + `(${key.quantity})`);
+            for (let plant of this.storage) {
+                storageResult.push(plant.plantName + ' ' + `(${plant.quantity})`);
             }
 
             result.push(`Plants in storage: ${storageResult.join(', ')}`);
-            // for (let plant of this.storage) {
-            //     result.push(plant.plantName, plant.quantity)
-            // }
         }
 
         return result.join('\n');
