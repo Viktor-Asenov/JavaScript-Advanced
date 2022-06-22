@@ -55,6 +55,8 @@ class CarDealership {
     }
 
     let availableCarsForSale = [];
+    availableCarsForSale.push("-Available cars:");
+
     for (let car of this.availableCars) {
       availableCarsForSale.push(
         `---${car.model} - ${car.horsepower} HP - ${car.mileage.toFixed(
