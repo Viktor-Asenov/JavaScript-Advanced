@@ -1,0 +1,16 @@
+{
+  "name": "03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "03. Car service_Resources.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}
